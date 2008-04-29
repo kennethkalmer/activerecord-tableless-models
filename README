@@ -1,0 +1,6 @@
+ActiveRecord Tableless Models
+-----------------------------
+
+A single implementation of the ActiveRecord Tableless Model pattern for any
+Rails project or other Ruby project that uses ActiveRecord.
+

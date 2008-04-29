@@ -1,0 +1,4 @@
+ActiveRecord::Tableless CHANGELOG
+---------------------------------
+
+2008-05-01 - Initial code, rough around the edges.
