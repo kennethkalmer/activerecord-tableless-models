@@ -1,0 +1,14 @@
+ActiveRecord::Tableless TODO
+----------------------------
+
+0.1.x (Make it useful)
+* More documentation, better examples
+* Tests
+* CLI Tools for installing into in existing Rails project
+
+0.2.x (Completely detach all db operations)
+* Mock out #find, #save and others
+
+0.3.x (Transporter series)
+* Use tableless models to easily serialize/deserialize data for portability
+  (not persistance)
