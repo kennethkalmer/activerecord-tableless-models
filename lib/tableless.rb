@@ -48,6 +48,9 @@ module ActiveRecord
         # extend
         extend  ActiveRecord::Tableless::SingletonMethods
         
+        # include
+        include ActiveRecord::Tableless::InstanceMethods
+        
         # setup columns
       end
       
@@ -64,6 +67,28 @@ module ActiveRecord
       # Register a new column.
       def column(name, sql_type = nil, default = nil, null = true)
         tableless_options[:columns] << ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, sql_type.to_s, null)
+      end
+      
+      %w(find create destroy).each do |m| 
+        eval %{ 
+          def #{m}
+            logger.warn "Can't #{m} a Tableless object"
+            false
+          end
+        }
+      end
+      
+    end
+    
+    module InstanceMethods
+    
+      %w(save destroy).each do |m| 
+        eval %{ 
+          def #{m}
+            logger.warn "Can't #{m} a Tableless object"
+            false
+          end
+        }
       end
       
     end
