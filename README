@@ -4,3 +4,32 @@ ActiveRecord Tableless Models
 A single implementation of the ActiveRecord Tableless Model pattern for any
 Rails project or other Ruby project that uses ActiveRecord.
 
+Define a model like this:
+
+class ContactMessage < ActiveRecord::Base
+  has_no_table
+  column :name, :string
+  column :email, :string
+  validates_presence_of :name, :email
+end
+
+You can now use the model in a view like this:
+
+<%= form_for :message, @message do |f| %>
+  Your name: <%= f.text_field :name %>
+  Your email: <%= f.text_field :email %>
+<% end %>
+
+And in the controller:
+
+def message
+  @message = ContactMessage.new
+  if request.post?
+    @message.attributes = params[:message]
+    if @message.valid?
+      # Process the message...
+    end
+  end
+end
+
+
