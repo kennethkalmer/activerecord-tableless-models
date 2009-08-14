@@ -1,6 +1,25 @@
 ActiveRecord Tableless Models
 -----------------------------
 
+<DEPRECATED_NOTICE>
+
+This library is no longer maintained and not recommended for general use. 
+With Rails 3.0 on the way, and the new ActiveModel::Validations mixin,
+the library becomes worthless.
+
+Until Rails 3.0 is released you might want to consider looking at the excellent
+Validator [1] gem from Jay Fields that provides the same functionality (in
+terms of validations) but doesn't require ActiveRecord at all.
+
+I've updated the gemspec so that this gem will not work with ActiveRecord 3.0
+or later.
+
+1 - http://validatable.rubyforge.org/
+
+This was my first gem ever, so it will be surely missed.
+
+</DEPRECATED_NOTICE>
+
 A single implementation of the ActiveRecord Tableless Model pattern for any
 Rails project or other Ruby project that uses ActiveRecord.
 
